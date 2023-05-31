@@ -62,15 +62,15 @@
     position:absolute;
     bottom:15px;
     right:40px;
-    background: #4410ac;
+    background: #3a3a3a;
     widows: 300px;
     height:50px;
-    width:120px;
+    width:300px;
     text-align:center;
     font-size: 1.5em;
     color:white;
-    font-family: fantasy;
     box-shadow: 0 5px 5px #777;
+    border-radius: 10px;
 }
 /*cuadro de texto inicial*/
 .cuadroInicial{

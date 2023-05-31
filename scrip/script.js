@@ -158,7 +158,7 @@ function gamePlay() {
     console.log(player.cuadroPuntuacion++);
     player.cuadroPuntuacion++;
     let ps = player.cuadroPuntuacion - 1;
-    cuadroPuntuacion.innerText = "cuadroPuntuacion: " + ps;
+    cuadroPuntuacion.innerText = "Puntos: " + ps;
   }
 }
 /**
