@@ -39,8 +39,8 @@
 .areaJ{
     height:100vh;
     width:400px;
-    background-image:  linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(68, 68, 68, 0.5)), url("https://www.ecoasfalt.es/wp-content/uploads/2018/10/imagen2.jpg");;
-    /* margin:auto; */
+    background-image:  linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(68, 68, 68, 0.5)), url("https://www.ecoasfalt.es/wp-content/uploads/2018/10/imagen2.jpg");
+    margin:auto;
     position:relative;
     overflow:hidden;
     border-right:7px solid #c8d6e5;
