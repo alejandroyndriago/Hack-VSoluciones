@@ -26,18 +26,11 @@
               que corresponde a la tecla que se presionó. Esto permite que el código realice un
               seguimiento de las teclas que se están presionando actualmente. */
                 keys[e.key]=true;
-              /* El código registra la tecla que se presionó y el estado actual del objeto `keys`, que
-              realiza un seguimiento de las teclas de flecha que se están presionando actualmente.
-              Esto se usa para controlar el movimiento del automóvil del jugador en el juego. */
+
                 // console.log(e.key);
                 // console.log(keys);
             }
-            /* La función `keyUp` es una función de devolución de llamada que se activa cuando se
-            suelta una tecla en el teclado. Toma un objeto de evento `e` como parámetro. La función
-            primero llama a `e.preventDefault()` para evitar que se ejecute la acción predeterminada
-            de la tecla. A continuación, establece el valor de la propiedad en el objeto `claves`
-            que corresponde a la clave liberada en `falso`. Esto se utiliza para realizar un
-            seguimiento de las teclas que se están presionando actualmente. */
+        
             function keyUp(e){
                 e.preventDefault();
                 keys[e.key]=false;
