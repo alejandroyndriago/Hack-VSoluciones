@@ -23,9 +23,9 @@
     width:100%;
     height:100vw;
     background: #0e5d85;
-    background-image: url(../recursos/bosque.jpeg);
-    background-repeat:no-repeat;
-    background-size:100% 100%;
+    background-image: url(https://img.freepik.com/vector-premium/mapa-plan-urbano-costuras_70347-3332.jpg);
+    /* background-repeat:no-repeat; */
+    background-size:50% 50%;
 }
 /*Linea del medio*/
 .lines{
@@ -39,8 +39,8 @@
 .areaJ{
     height:100vh;
     width:400px;
-    background: #373737;
-    margin:auto;
+    background-image:  linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(68, 68, 68, 0.5)), url("https://www.ecoasfalt.es/wp-content/uploads/2018/10/imagen2.jpg");;
+    /* margin:auto; */
     position:relative;
     overflow:hidden;
     border-right:7px solid #c8d6e5;
