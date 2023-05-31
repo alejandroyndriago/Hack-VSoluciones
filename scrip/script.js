@@ -101,10 +101,10 @@ function endGame() {
   player.start = false;
   cuadroInicial.classList.remove("hide");
   cuadroInicial.innerHTML =
-    "Fin del juego <br> Puntuación final:" +
+    "<h1>Fin del juego</h1> <br> <h2>Puntaje final:" +
     player.cuadroPuntuacion +
     " " +
-    "<br>Pulsa de nuevo para volver a empezar";
+    "<br>Pulsa para jugar otra vez</h2>";
 }
 /**
  * La función mueve los coches enemigos por la pantalla y comprueba si hay colisiones con el
