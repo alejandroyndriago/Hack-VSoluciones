@@ -173,6 +173,13 @@ function start() {
   player.cuadroPuntuacion = 0;
   window.requestAnimationFrame(gamePlay);
 
+  /* Este código crea cinco líneas en el camino del juego. Utiliza un bucle for para iterar cinco veces
+  y crear un nuevo elemento HTML `div` para cada línea. El atributo `clase` de cada línea se
+  establece en "líneas". La posición `y` de cada línea se establece en un valor que aumenta en 150
+  píxeles por cada iteración del ciclo, lo que coloca cada línea verticalmente debajo de la línea
+  anterior. La propiedad `top` de CSS de cada línea se establece en el valor `y`, que inicialmente
+  los coloca fuera de la parte inferior de la pantalla. Finalmente, cada línea se agrega al elemento
+  `areaJ` utilizando el método `appendChild()`. */
   for (x = 0; x < 5; x++) {
     let roadLine = document.createElement("div");
     roadLine.setAttribute("class", "lines");
