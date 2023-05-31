@@ -18,7 +18,7 @@
     background-size: 50px 120px;
 }
 /*Fondo juego*/
-.carGame{
+.carrosJ{
     width:100%;
     height:100vw;
     background: #0e5d85;
@@ -35,7 +35,7 @@
     margin-left:50%;
 }
 /*carretera*/
-.gameArea{
+.areaJ{
     height:100vh;
     width:400px;
     background: #373737;

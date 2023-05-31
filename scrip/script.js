@@ -3,12 +3,12 @@ constante "cuadroPuntuacion". */
 const cuadroPuntuacion = document.querySelector(".cuadroPuntuacion");
 
 /* Estas líneas de código van seleccionando los elementos HTML con las clases
-           "cuadroInicial" y "gameArea" y almacenándolos en las variables constantes `cuadroInicial`
-           y `gameArea`, respectivamente. Estos elementos se utilizan posteriormente en el código
+           "cuadroInicial" y "areaJ" y almacenándolos en las variables constantes `cuadroInicial`
+           y `areaJ`, respectivamente. Estos elementos se utilizan posteriormente en el código
            para agregar detectores de eventos y manipular su contenido. */
 const cuadroInicial = document.querySelector(".cuadroInicial");
-const gameArea = document.querySelector(".gameArea");
-/*console.log(gameArea);*/
+const areaJ = document.querySelector(".areaJ");
+/*console.log(areaJ);*/
 /* Agregar un detector de eventos de clic al elemento HTML con la clase "cuadroInicial" y
             llamar a la función "iniciar" cuando se hace clic en el elemento. */
 cuadroInicial.addEventListener("click", start);
@@ -132,9 +132,9 @@ function moveEnemy(yo) {
             así, llama a las funciones `moveLines()` y `moveEnemy()` para mover las líneas de la
             carretera y los coches enemigos respectivamente. */
 function gamePlay() {
-  console.log("here we go");
+//   console.log("here we go");
   let yo = document.querySelector(".yo");
-  let road = gameArea.getBoundingClientRect();
+  let road = areaJ.getBoundingClientRect();
   /*console.log(road);*/
   if (player.start) {
     moveLines();
@@ -168,7 +168,7 @@ function gamePlay() {
 function start() {
   //cuadroInicial.classList.remove('hide');
   cuadroInicial.classList.add("hide");
-  gameArea.innerHTML = "";
+  areaJ.innerHTML = "";
   player.start = true;
   player.cuadroPuntuacion = 0;
   window.requestAnimationFrame(gamePlay);
@@ -178,13 +178,13 @@ function start() {
     roadLine.setAttribute("class", "lines");
     roadLine.y = x * 150;
     roadLine.style.top = roadLine.y + "px";
-    gameArea.appendChild(roadLine);
+    areaJ.appendChild(roadLine);
   }
 
   let yo = document.createElement("div");
   yo.setAttribute("class", "yo");
   /*yo.innerText="Hey I am yo";*/
-  gameArea.appendChild(yo);
+  areaJ.appendChild(yo);
 
   /* Estas líneas de código establecen la posición inicial del automóvil del jugador en el
              área de juego. `yo` es una referencia al elemento del coche del jugador, y `offsetLeft`
@@ -210,7 +210,7 @@ function start() {
                 `randomColor()`. La propiedad CSS "izquierda" de cada automóvil enemigo se establece
                 en un valor aleatorio entre 0 y 350 píxeles, lo que los coloca en una posición
                 horizontal aleatoria dentro del área de juego. Finalmente, cada auto enemigo se
-                agrega al elemento `gameArea` usando el método `appendChild()`. */
+                agrega al elemento `areaJ` usando el método `appendChild()`. */
   for (x = 0; x < 3; x++) {
     let enemyCar = document.createElement("div");
     enemyCar.setAttribute("class", "carroCompetencia");
@@ -218,7 +218,7 @@ function start() {
     enemyCar.style.top = enemyCar.y + "px";
     enemyCar.style.backgroundColor = randomColor();
     enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
-    gameArea.appendChild(enemyCar);
+    areaJ.appendChild(enemyCar);
   }
 }
 /**
