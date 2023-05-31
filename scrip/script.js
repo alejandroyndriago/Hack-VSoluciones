@@ -1,30 +1,33 @@
- const score=document.querySelector('.score');
-        /* Seleccionando el elemento HTML con la clase "startScreen" y asignándolo a la variable
-        constante "startScreen". */
-            const startScreen=document.querySelector('.startScreen');
+/* Seleccionando el elemento HTML con la clase "cuadroPuntuacion" y almacenándolo en la variable
+constante "cuadroPuntuacion". */
+ const cuadroPuntuacion=document.querySelector('.cuadroPuntuacion');
+
+           /* Estas líneas de código van seleccionando los elementos HTML con las clases
+           "cuadroInicial" y "gameArea" y almacenándolos en las variables constantes `cuadroInicial`
+           y `gameArea`, respectivamente. Estos elementos se utilizan posteriormente en el código
+           para agregar detectores de eventos y manipular su contenido. */
+            const cuadroInicial=document.querySelector('.cuadroInicial');
             const gameArea=document.querySelector('.gameArea');
             /*console.log(gameArea);*/
-            startScreen.addEventListener('click',start);
-            let player={speed:10,score:0};
+            /* Agregar un detector de eventos de clic al elemento HTML con la clase "cuadroInicial" y
+            llamar a la función "iniciar" cuando se hace clic en el elemento. */
+            cuadroInicial.addEventListener('click',start);
+          /* Estas líneas de código crean dos objetos, `player` y `keys`, utilizando la palabra clave
+          `let` para declararlos como variables. */
+            let player={speed:10,cuadroPuntuacion:0};
             let keys ={ArrowUp:false,ArrowDown:false,ArrowLeft:false,ArrowRight:false}
 
+         /* Estas líneas de código agregan detectores de eventos al objeto del documento para los
+         eventos 'keydown' y 'keyup', respectivamente. Cuando se presiona o suelta una tecla, se
+         llama a la función correspondiente 'keyDown' o 'keyUp'. Estas funciones actualizan el
+         objeto 'llaves' con el estado actual de las teclas de flecha, que se utilizan para
+         controlar el movimiento del automóvil del jugador en el juego. */
             document.addEventListener('keydown',keyDown);
             document.addEventListener('keyup',keyUp);
 
-           /**
-            * La función captura y almacena la tecla que presionó el usuario.
-            * @param e - El parámetro "e" es un objeto de evento que se pasa a la función "keyDown"
-            * cuando se presiona una tecla en el teclado. Contiene información sobre el evento, como la
-            * tecla que se presionó, el tipo de evento y cualquier otro dato relevante.
-            */
+
             function keyDown(e){
-              /* `e.preventDefault();` es un método que evita que ocurra la acción predeterminada de un
-              evento. En este código, se usa para evitar que la acción predeterminada de las teclas
-              de flecha se desplace por la página cuando se presionan. */
                 e.preventDefault();
-              /* `keys[e.key]=true;` está asignando el valor `true` a la propiedad del objeto `keys`
-              que corresponde a la tecla que se presionó. Esto permite que el código realice un
-              seguimiento de las teclas que se están presionando actualmente. */
                 keys[e.key]=true;
 
                 // console.log(e.key);
@@ -56,14 +59,14 @@
             }
             function endGame(){
                 player.start=false;
-                startScreen.classList.remove('hide');
-                startScreen.innerHTML="Fin del juego <br> Puntuación final:"+player.score+" "+"<br>Pulsa de nuevo para volver a empezar";
+                cuadroInicial.classList.remove('hide');
+                cuadroInicial.innerHTML="Fin del juego <br> Puntuación final:"+player.cuadroPuntuacion+" "+"<br>Pulsa de nuevo para volver a empezar";
             }
-            function moveEnemy(car){
-                let enemy=document.querySelectorAll('.enemy');
-                enemy.forEach(function(item){
+            function moveEnemy(yo){
+                let carroCompetencia=document.querySelectorAll('.carroCompetencia');
+                carroCompetencia.forEach(function(item){
 
-                    if(isCollide(car,item)){
+                    if(isCollide(yo,item)){
                         console.log("Bang!");
                         endGame();
                     }
@@ -75,14 +78,19 @@
                     item.style.top=item.y+"px";
                 })
             }
+            /* La función `gamePlay()` es responsable de controlar el ciclo del juego. Primero
+            selecciona el elemento del automóvil del jugador y obtiene las dimensiones del área de
+            juego. Luego, comprueba si el juego ha comenzado (`player.start` es verdadero) y, de ser
+            así, llama a las funciones `moveLines()` y `moveEnemy()` para mover las líneas de la
+            carretera y los coches enemigos respectivamente. */
             function gamePlay(){
                 console.log("here we go");
-                let car=document.querySelector('.car');
+                let yo=document.querySelector('.yo');
                 let road=gameArea.getBoundingClientRect();
                 /*console.log(road);*/
                 if(player.start){
                     moveLines();
-                    moveEnemy(car);
+                    moveEnemy(yo);
 
                     if(keys.ArrowUp && player.y>(road.top+70)){
                         player.y-=player.speed
@@ -96,21 +104,21 @@
                     if(keys.ArrowRight && player.x<(road.width-50)){
                         player.x+=player.speed
                     }
-                    car.style.top=player.y+"px";
-                    car.style.left=player.x+"px";
+                    yo.style.top=player.y+"px";
+                    yo.style.left=player.x+"px";
                     window.requestAnimationFrame(gamePlay);
-                    console.log(player.score++);
-                    player.score++;
-                    let ps=player.score-1;
-                    score.innerText="Score: "+ps;
+                    console.log(player.cuadroPuntuacion++);
+                    player.cuadroPuntuacion++;
+                    let ps=player.cuadroPuntuacion-1;
+                    cuadroPuntuacion.innerText="cuadroPuntuacion: "+ps;
                 }
             }
             function start(){
-                //gameArea.classList.remove('hide');
-                startScreen.classList.add('hide');
+                //cuadroInicial.classList.remove('hide');
+                cuadroInicial.classList.add('hide');
                 gameArea.innerHTML="";
                 player.start=true;
-                player.score=0;
+                player.cuadroPuntuacion=0;
                 window.requestAnimationFrame(gamePlay);
 
                 for(x=0;x<5;x++){
@@ -121,21 +129,28 @@
                     gameArea.appendChild(roadLine);
                 }
 
-                let car=document.createElement('div');
-                car.setAttribute('class','car');
-                /*car.innerText="Hey I am car";*/
-                gameArea.appendChild(car);
+                let yo=document.createElement('div');
+                yo.setAttribute('class','yo');
+                /*yo.innerText="Hey I am yo";*/
+                gameArea.appendChild(yo);
 
-                player.x=car.offsetLeft;
-                player.y=car.offsetTop;
+             /* Estas líneas de código establecen la posición inicial del automóvil del jugador en el
+             área de juego. `yo` es una referencia al elemento del coche del jugador, y `offsetLeft`
+             y `offsetTop` son propiedades que dan la distancia entre los bordes izquierdo y
+             superior del elemento y los bordes izquierdo y superior de su elemento principal
+             desplazado. Al establecer `player.x` y `player.y` en estos valores, el código almacena
+             la posición inicial del automóvil del jugador para su uso posterior en el ciclo del
+             juego. */
+                player.x=yo.offsetLeft;
+                player.y=yo.offsetTop;
 
 
-               /* console.log(car.offsetTop);
-                console.log(car.offsetLeft);*/
+               /* console.log(yo.offsetTop);
+                console.log(yo.offsetLeft);*/
 
                 for(x=0;x<3;x++){
                     let enemyCar=document.createElement('div');
-                    enemyCar.setAttribute('class','enemy');
+                    enemyCar.setAttribute('class','carroCompetencia');
                     enemyCar.y=((x+1)*350)*-1;
                     enemyCar.style.top=enemyCar.y+"px";
                     enemyCar.style.backgroundColor=randomColor();

@@ -7,7 +7,7 @@
     display:none;
 }
 /*Carro jugador*/
-.car{
+.yo{
     height:120px;
     border-radius: 10px;
     width:50px;
@@ -46,7 +46,7 @@
     border-left:7px solid #c8d6e5;
 }
 /* carros enemigos */
-.enemy{
+.carroCompetencia{
     background-color: blue;
     height:100px;
     border-radius: 10px;
@@ -58,7 +58,7 @@
     background-size: 50px 100px;
 }
 /* tablero de puntuacion */
-.score{
+.cuadroPuntuacion{
     position:absolute;
     bottom:15px;
     right:40px;
@@ -73,19 +73,23 @@
     box-shadow: 0 5px 5px #777;
 }
 /*cuadro de texto inicial*/
-.startScreen{
+.cuadroInicial{
     position:absolute;
-    top:20%;
+    top:50%;
     left:50%;
-    background: #00ffff;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(42, 42, 42, 0.5)), url("https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2022/12/need-speed-unbound-2905336.jpg?tf=3840x");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     transform:translate(-50%,-50%);
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
     z-index: 1;
     text-align:center;
     border:1px solid #000000;
-    padding:15px;
+    border-radius: 100px;
+    padding:150px;
     margin:auto;
-    width:50%;
+    width:30%;
+    height: 40%;
     cursor: pointer;
     font-family: carfont;
     letter-spacing: 5;
