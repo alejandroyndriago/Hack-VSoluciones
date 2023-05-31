@@ -133,6 +133,8 @@ function moveEnemy(yo) {
             carretera y los coches enemigos respectivamente. */
 function gamePlay() {
 //   console.log("here we go");
+  /* Esta línea de código selecciona el elemento HTML con la clase "yo" y lo almacena en la variable
+  `yo`. Este elemento representa el coche del jugador en el juego. */
   let yo = document.querySelector(".yo");
   let road = areaJ.getBoundingClientRect();
   /*console.log(road);*/
@@ -140,9 +142,23 @@ function gamePlay() {
     moveLines();
     moveEnemy(yo);
 
+    /* Este bloque de código verifica si se presiona la tecla de flecha hacia arriba (`keys.ArrowUp` es
+    verdadero) y si la posición y actual del jugador es mayor que la parte superior de la carretera
+    más 70 píxeles (`player.y > road.top + 70 `). Si ambas condiciones son verdaderas, entonces la
+    posición y del jugador se reduce por la velocidad del jugador (`jugador.y -=
+    jugador.velocidad`), que mueve el coche del jugador hacia arriba en la pantalla. Este bloque de
+    código es responsable de manejar el movimiento del jugador cuando se presiona la tecla de flecha
+    hacia arriba. */
     if (keys.ArrowUp && player.y > road.top + 70) {
       player.y -= player.speed;
     }
+    /* Este bloque de código verifica si se presiona la tecla de flecha hacia abajo (`keys.ArrowDown`
+    es verdadero) y si la posición actual del automóvil del jugador (`player.y`) es menor que la
+    parte inferior de la carretera menos 85 píxeles (` camino.fondo - 85`). Si ambas condiciones son
+    verdaderas, la posición del jugador aumenta según la velocidad del jugador (`jugador.y +=
+    jugador.velocidad`), que mueve el coche del jugador hacia abajo en la pantalla. Este bloque de
+    código es responsable de manejar el movimiento del jugador cuando se presiona la tecla de flecha
+    hacia abajo. */
     if (keys.ArrowDown && player.y < road.bottom - 85) {
       player.y += player.speed;
     }
